@@ -75,19 +75,24 @@
 
 # Delete existing data, so you'll start fresh each time this script is run.
 # Use `Model.destroy_all` code.
-# TODO!
-Studio.destroy_all
-Movie.destroy_all
-Actor.destroy_all
-Role.destroy_all
+# # TODO!
+# Studio.destroy_all -- migrated to seeds.rb
+# Movie.destroy_all -- migrated to seeds.rb
+# Actor.destroy_all -- migrated to seeds.rb
+# Role.destroy_all -- migrated to seeds.rb
 
 # Generate models and tables, according to the domain model.
 # TODO!
-
+# Steps:
+    # rails generate model _________ (Studio, Movie, Actor, Role)
+    # input structure to migrate files
+    # run using rails db:migrate
 
 # Insert data into the database that reflects the sample data shown above.
 # Do not use hard-coded foreign key IDs.
 # TODO!
+    # completed in seeds.rb
+
 
 # Prints a header for the movies output
 puts "Movies"
@@ -97,6 +102,13 @@ puts ""
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
 
+all_movies = Movie.all
+
+for movie in all_movies
+    studio = movie.studio  # Access the studio through the relationship
+    puts "#{movie.title}  #{movie.year_released}  #{movie.rated}  #{studio.name}"
+  end
+
 # Prints a header for the cast output
 puts ""
 puts "Top Cast"
@@ -105,3 +117,11 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
+
+all_roles = Role.all
+
+for role in all_roles
+    movie = role.movie  # Access the movie through the relationship
+    actor = role.actor  # Access the actor through the relationship
+    puts "#{movie.title}  #{actor.name}  #{role.character_name}"
+  end
