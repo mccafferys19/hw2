@@ -201,103 +201,103 @@ caine.save
 
 # # Create Roles
 # # Batman Begins
-new_role = Role.new
-new_role.movie = batman_begins
-new_role.actor = bale
-new_role.character_name = "Bruce Wayne"
-new_role.save
+role1 = Role.new
+role1.movie_id = batman_begins.id
+role1.actor_id = bale.id
+role1.character_name = "Bruce Wayne"
+role1.save
 
-new_role = Role.new
-new_role.movie = batman_begins
-new_role.actor = caine
-new_role.character_name = "Alfred"
-new_role.save
+role2 = Role.new
+role2.movie_id = batman_begins.id
+role2.actor_id = caine.id
+role2.character_name = "Alfred"
+role2.save
 
-new_role = Role.new
-new_role.movie = batman_begins
-new_role.actor = neeson
-new_role.character_name = "Ra's Al Ghul"
-new_role.save
+role3 = Role.new
+role3.movie_id = batman_begins.id
+role3.actor_id = neeson.id
+role3.character_name = "Ra's Al Ghul"
+role3.save
 
-new_role = Role.new
-new_role.movie = batman_begins
-new_role.actor = holmes
-new_role.character_name = "Rachel Dawes"
-new_role.save
+role4 = Role.new
+role4.movie_id = batman_begins.id
+role4.actor_id = holmes.id
+role4.character_name = "Rachel Dawes"
+role4.save
 
-new_role = Role.new
-new_role.movie = batman_begins
-new_role.actor = oldman
-new_role.character_name = "Commissioner Gordon"
-new_role.save
+role5 = Role.new
+role5.movie_id = batman_begins.id
+role5.actor_id = oldman.id
+role5.character_name = "Commissioner Gordon"
+role5.save
 
 # The Dark Knight
-new_role = Role.new
-new_role.movie = dark_knight
-new_role.actor = bale
-new_role.character_name = "Bruce Wayne"
-new_role.save
+role6 = Role.new
+role6.movie_id = dark_knight.id
+role6.actor_id = bale.id
+role6.character_name = "Bruce Wayne"
+role6.save
 
-new_role = Role.new
-new_role.movie = dark_knight
-new_role.actor = ledger
-new_role.character_name = "Joker"
-new_role.save
+role7 = Role.new
+role7.movie_id = dark_knight.id
+role7.actor_id = ledger.id
+role7.character_name = "Joker"
+role7.save
 
-new_role = Role.new
-new_role.movie = dark_knight
-new_role.actor = eckhart
-new_role.character_name = "Harvey Dent"
-new_role.save
+role8 = Role.new
+role8.movie_id = dark_knight.id
+role8.actor_id = eckhart.id
+role8.character_name = "Harvey Dent"
+role8.save
 
-new_role = Role.new
-new_role.movie = dark_knight
-new_role.actor = caine
-new_role.character_name = "Alfred"
-new_role.save
+role9 = Role.new
+role9.movie_id = dark_knight.id
+role9.actor_id = caine.id
+role9.character_name = "Alfred"
+role9.save
 
-new_role = Role.new
-new_role.movie = dark_knight
-new_role.actor = gyllenhaal
-new_role.character_name = "Rachel Dawes"
-new_role.save
+role10 = Role.new
+role10.movie_id = dark_knight.id
+role10.actor_id = gyllenhaal.id
+role10.character_name = "Rachel Dawes"
+role10.save
 
 # The Dark Knight Rises
-new_role = Role.new
-new_role.movie = knight_rises
-new_role.actor = bale
-new_role.character_name = "Bruce Wayne"
-new_role.save
+role11 = Role.new
+role11.movie_id = knight_rises.id
+role11.actor_id = bale.id
+role11.character_name = "Bruce Wayne"
+role11.save
 
-new_role = Role.new
-new_role.movie = knight_rises
-new_role.actor = oldman
-new_role.character_name = "Commissioner Gordon"
-new_role.save
+role12 = Role.new
+role12.movie_id = knight_rises.id
+role12.actor_id = oldman.id
+role12.character_name = "Commissioner Gordon"
+role12.save
 
-new_role = Role.new
-new_role.movie = knight_rises
-new_role.actor = hardy
-new_role.character_name = "Bane"
-new_role.save
+role13 = Role.new
+role13.movie_id = knight_rises.id
+role13.actor_id = hardy.id
+role13.character_name = "Bane"
+role13.save
 
-new_role = Role.new
-new_role.movie = knight_rises
-new_role.actor = gordon_levitt
-new_role.character_name = "John Blake"
-new_role.save
+role14 = Role.new
+role14.movie_id = knight_rises.id
+role14.actor_id = gordon_levitt.id
+role14.character_name = "John Blake"
+role14.save
 
-new_role = Role.new
-new_role.movie = knight_rises
-new_role.actor = hathaway
-new_role.character_name = "Selina Kyle"
-new_role.save
+role15 = Role.new
+role15.movie_id = knight_rises.id
+role15.actor_id = hathaway.id
+role15.character_name = "Selina Kyle"
+role15.save
 
-# # Check
-#     puts Movie.count
-#     puts Actor.count
-#     puts Role.count
-#     puts Studio.count
+# Check
+    puts Movie.count
+    puts Actor.count
+    puts Role.count
+    puts Studio.count
 
 # # Prints a header for the movies output
 puts "Movies"
@@ -307,26 +307,26 @@ puts ""
 # # Query the movies data and loop through the results to display the movies output.
 # # TODO!
 
-all_movies = Movie.all
+# all_movies = Movie.all
 
-for movie in all_movies
-    studio = movie.studio  # Access the studio through the relationship
-    puts "#{movie.title}  #{movie.year_released}  #{movie.rated}  #{studio.name}"
-  end
+# for movie in all_movies
+#     studio = movie.studio  # Access the studio through the relationship
+#     puts "#{movie.title}  #{movie.year_released}  #{movie.rated}  #{studio.name}"
+#   end
 
-# # Prints a header for the cast output
-puts ""
-puts "Top Cast"
-puts "========"
-puts ""
+# # # Prints a header for the cast output
+# puts ""
+# puts "Top Cast"
+# puts "========"
+# puts ""
 
-# # Query the cast data and loop through the results to display the cast output for each movie.
-# # TODO!
+# # # Query the cast data and loop through the results to display the cast output for each movie.
+# # # TODO!
 
-all_roles = Role.all
+# all_roles = Role.all
 
-for role in all_roles
-    movie = role.movie  # Access the movie through the relationship
-    actor = role.actor  # Access the actor through the relationship
-    puts "#{movie.title}  #{actor.name}  #{role.character_name}"
-  end
+# for role in all_roles
+#     movie = role.movie  # Access the movie through the relationship
+#     actor = role.actor  # Access the actor through the relationship
+#     puts "#{movie.title}  #{actor.name}  #{role.character_name}"
+#   end
