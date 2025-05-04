@@ -341,7 +341,7 @@ movies = [batman_begins, dark_knight, knight_rises]
 
 for movie in movies
     studio = movie.studio_id  # Access the studio through the relationship
-    puts "#{movie.title}  #{movie.year_released}  #{movie.rated}  #{studio.name}"
+    puts "#{movie.title}  #{movie.year_released}  #{movie.rated}  #{warner.name}"
   end
 
 # # Prints a header for the cast output
@@ -353,10 +353,10 @@ puts ""
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
 
-# all_roles = Role.all
+all_roles = Role.all
 
-# for role in all_roles
-#     movie = role.movie  # Access the movie through the relationship
-#     actor = role.actor  # Access the actor through the relationship
-#     puts "#{movie.title}  #{actor.name}  #{role.character_name}"
-#   end
+for role in all_roles
+    movie = role.movie_id  # Access the movie through the relationship
+    actor = role.actor_id  # Access the actor through the relationship
+    puts "#{movie.title}  #{actor.name}  #{role.character_name}"
+  end
