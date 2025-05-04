@@ -96,6 +96,8 @@ warner = Studio.new
 warner["name"] = "Warner Bros."
 warner.save
 
+warner = Studio.find_by({"name" => "Warner Bros."})
+
 # if warner.save
 #     puts "Studio saved: #{warner.name}"
 #   else
@@ -110,6 +112,8 @@ batman_begins["rated"] = "PG-13"
 batman_begins["studio_id"] = warner.id
 batman_begins.save
 
+batman_begins = Movie.find_by({"title" => "Batman Begins"})
+
 # if batman_begins.save
 #     puts "Movie saved: #{batman_begins.title}"
 #   else
@@ -122,6 +126,8 @@ dark_knight["year_released"] = 2008
 dark_knight["rated"] = "PG-13"
 dark_knight["studio_id"] =  warner.id
 dark_knight.save
+
+dark_knight = Movie.find_by({"title" => "The Dark Knight"})
 
 # if dark_knight.save
 #     puts "Movie saved: #{dark_knight.title}"
@@ -136,6 +142,8 @@ knight_rises["rated"] = "PG-13"
 knight_rises["studio_id"] =  warner.id
 knight_rises.save
 
+knight_rises = Movie.find_by({"title" => "The Dark Knight Rises"})
+
 # if knight_rises.save
 #     puts "Movie saved: #{knight_rises.title}"
 #   else
@@ -147,6 +155,8 @@ bale = Actor.new
 bale["name"] = "Christian Bale"
 bale.save
 
+bale = Actor.find_by({"name" => "Christian Bale"})
+
 # if bale.save
 #     puts "Actor saved: #{bale.name}"
 #   else
@@ -157,47 +167,67 @@ caine = Actor.new
 caine["name"] = "Michael Caine"
 caine.save
 
+caine = Actor.find_by({"name" => "Michael Caine"})
+
 # if caine.save
 #     puts "Actor saved: #{caine.name}"
 #   else
 #     puts "Error saving actor: #{caine.errors.full_messages}"
 #   end
 
-  neeson = Actor.new
-  neeson["name"] = "Liam Neeson"
-  neeson.save
+neeson = Actor.new
+neeson["name"] = "Liam Neeson"
+neeson.save
+
+neeson = Actor.find_by({"name" => "Liam Neeson"})
   
-  holmes = Actor.new
-  holmes["name"] = "Katie Holmes"
-  holmes.save
-  
-  oldman = Actor.new
-  oldman["name"] = "Gary Oldman"
-  oldman.save
-  
-  ledger = Actor.new
-  ledger["name"] = "Heath Ledger"
-  ledger.save
-  
-  eckhart = Actor.new
-  eckhart["name"] = "Aaron Eckhart"
-  eckhart.save
-  
-  gyllenhaal = Actor.new
-  gyllenhaal["name"] = "Maggie Gyllenhaal"
-  gyllenhaal.save
-  
-  hardy = Actor.new
-  hardy["name"] = "Tom Hardy"
-  hardy.save
-  
-  gordon_levitt = Actor.new
-  gordon_levitt["name"] = "Joseph Gordon-Levitt"
-  gordon_levitt.save
-  
-  hathaway = Actor.new
-  hathaway["name"] = "Anne Hathaway"
-  hathaway.save
+holmes = Actor.new
+holmes["name"] = "Katie Holmes"
+holmes.save
+
+holmes = Actor.find_by({"name" => "Katie Holmes"})
+
+oldman = Actor.new
+oldman["name"] = "Gary Oldman"
+oldman.save
+
+oldman = Actor.find_by({"name" => "Gary Oldman"})
+
+ledger = Actor.new
+ledger["name"] = "Heath Ledger"
+ledger.save
+
+ledger = Actor.find_by({"name" => "Heath Ledger"})
+
+eckhart = Actor.new
+eckhart["name"] = "Aaron Eckhart"
+eckhart.save
+
+eckhart = Actor.find_by({"name" => "Aaron Eckhart"})
+
+gyllenhaal = Actor.new
+gyllenhaal["name"] = "Maggie Gyllenhaal"
+gyllenhaal.save
+
+gyllenhaal = Actor.find_by({"name" => "Maggie Gyllenhaal"})
+
+hardy = Actor.new
+hardy["name"] = "Tom Hardy"
+hardy.save
+
+hardy = Actor.find_by({"name" => "Tom Hardy"})
+
+gordon_levitt = Actor.new
+gordon_levitt["name"] = "Joseph Gordon-Levitt"
+gordon_levitt.save
+
+gordon_levitt = Actor.find_by({"name" => "Joseph Gordon-Levitt"})
+
+hathaway = Actor.new
+hathaway["name"] = "Anne Hathaway"
+hathaway.save
+
+hathaway = Actor.find_by({"name" => "Anne Hathaway"})
 
 # # Create Roles
 # # Batman Begins
@@ -294,34 +324,34 @@ role15.character_name = "Selina Kyle"
 role15.save
 
 # Check
-    puts Movie.count
-    puts Actor.count
-    puts Role.count
-    puts Studio.count
+# puts "Movies: #{Movie.count}"
+# puts "Actors: #{Actor.count}"
+# puts "Roles: #{Role.count}"
+# puts "Studios: #{Studio.count}"
 
-# # Prints a header for the movies output
+# Prints a header for the movies output
 puts "Movies"
 puts "======"
 puts ""
 
-# # Query the movies data and loop through the results to display the movies output.
-# # TODO!
+# Query the movies data and loop through the results to display the movies output.
+# TODO!
 
-# all_movies = Movie.all
+movies = [batman_begins, dark_knight, knight_rises]
 
-# for movie in all_movies
-#     studio = movie.studio  # Access the studio through the relationship
-#     puts "#{movie.title}  #{movie.year_released}  #{movie.rated}  #{studio.name}"
-#   end
+for movie in movies
+    studio = movie.studio_id  # Access the studio through the relationship
+    puts "#{movie.title}  #{movie.year_released}  #{movie.rated}  #{studio.name}"
+  end
 
-# # # Prints a header for the cast output
-# puts ""
-# puts "Top Cast"
-# puts "========"
-# puts ""
+# # Prints a header for the cast output
+puts ""
+puts "Top Cast"
+puts "========"
+puts ""
 
-# # # Query the cast data and loop through the results to display the cast output for each movie.
-# # # TODO!
+# Query the cast data and loop through the results to display the cast output for each movie.
+# TODO!
 
 # all_roles = Role.all
 
