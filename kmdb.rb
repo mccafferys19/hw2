@@ -92,9 +92,9 @@ Role.destroy_all
 # Do not use hard-coded foreign key IDs.
 # TODO!
 # Create Studios
-warner = Studio.new
-warner["name"] = "Warner Bros."
-warner.save
+studio1 = Studio.new
+studio1["name"] = "Warner Bros."
+studio1.save
 
 warner = Studio.find_by({"name" => "Warner Bros."})
 
@@ -105,12 +105,12 @@ warner = Studio.find_by({"name" => "Warner Bros."})
 #   end
 
 # Create Movies
-batman_begins = Movie.new
-batman_begins["title"] = "Batman Begins"
-batman_begins["year_released"] = 2005
-batman_begins["rated"] = "PG-13"
-batman_begins["studio_id"] = warner.id
-batman_begins.save
+movie1 = Movie.new
+movie1["title"] = "Batman Begins"
+movie1["year_released"] = 2005
+movie1["rated"] = "PG-13"
+movie1["studio_id"] = warner["id"]
+movie1.save
 
 batman_begins = Movie.find_by({"title" => "Batman Begins"})
 
@@ -120,12 +120,12 @@ batman_begins = Movie.find_by({"title" => "Batman Begins"})
 #     puts "Error saving movie: #{batman_begins.errors.full_messages}"
 #   end
 
-dark_knight = Movie.new
-dark_knight["title"] = "The Dark Knight"
-dark_knight["year_released"] = 2008
-dark_knight["rated"] = "PG-13"
-dark_knight["studio_id"] =  warner.id
-dark_knight.save
+movie2 = Movie.new
+movie2["title"] = "The Dark Knight"
+movie2["year_released"] = 2008
+movie2["rated"] = "PG-13"
+movie2["studio_id"] =  warner["id"]
+movie2.save
 
 dark_knight = Movie.find_by({"title" => "The Dark Knight"})
 
@@ -135,12 +135,12 @@ dark_knight = Movie.find_by({"title" => "The Dark Knight"})
 #     puts "Error saving movie: #{dark_knight.errors.full_messages}"
 #   end
 
-knight_rises = Movie.new
-knight_rises["title"] = "The Dark Knight Rises"
-knight_rises["year_released"] = 2012
-knight_rises["rated"] = "PG-13"
-knight_rises["studio_id"] =  warner.id
-knight_rises.save
+movie3 = Movie.new
+movie3["title"] = "The Dark Knight Rises"
+movie3["year_released"] = 2012
+movie3["rated"] = "PG-13"
+movie3["studio_id"] =  warner["id"]
+movie3.save
 
 knight_rises = Movie.find_by({"title" => "The Dark Knight Rises"})
 
@@ -337,11 +337,11 @@ puts ""
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
 
-movies = [batman_begins, dark_knight, knight_rises]
+movies = Movie.all
 
 for movie in movies
-    studio = movie.studio_id  # Access the studio through the relationship
-    puts "#{movie.title}  #{movie.year_released}  #{movie.rated}  #{warner.name}"
+    studio = Studio.find_by({"id" => movie.studio_id})  # Access the studio through the relationship
+    puts "#{movie.title} #{movie.year_released} #{movie.rated} #{studio.name}"
   end
 
 # # Prints a header for the cast output
@@ -356,7 +356,7 @@ puts ""
 all_roles = Role.all
 
 for role in all_roles
-    movie = role.movie_id  # Access the movie through the relationship
-    actor = role.actor_id  # Access the actor through the relationship
+    movie = Movie.find_by({"id" => role.movie_id})  # Access the movie through the relationship
+    actor = Actor.find_by({"id" => role.actor_id})  # Access the actor through the relationship
     puts "#{movie.title}  #{actor.name}  #{role.character_name}"
   end
